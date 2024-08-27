@@ -1,22 +1,61 @@
 # Shabeh
 
-✨ **A light-weight Javascript package to calculate the percentage of similarity between two Arabic words.** ✨
-
+✨ **A light-weight Javascript package to calculate the similarity between two Arabic words.** ✨
 
 ## Installation
 
 To install this module, run:
 
-bash npm install shabeh
+```bash
+npm install shabeh
+```
 
 ## Usage
 
 ### Importing the Module
 
-typescript import calculateSimilarity from 'shabeh';
+```typescript
+import { isSimilar, similarityPercentage, countMatched, countUnmatched } from 'shabeh';
+```
 
-#### `calculateSimilarity(word1: string, word2: string): number`
+### Functions
 
-Calculates the percentage similarity between two Arabic words.
+#### `isSimilar(word1: string, word2: string): boolean`
 
-typescript const similarity = calculateSimilarity("كلمة", "كلمتة"); console.log(similarity.toFixed(2)); // Output: 66.67%
+```typescript
+const result = isSimilar("فاطمه", "فاطمة");
+console.log(result); // Output: true
+```
+
+#### `similarityPercentage(word1: string, word2: string): number`
+
+```typescript
+const similarity = similarityPercentage("داؤود", "داوود");
+console.log(similarity.toFixed(2)); // Output: 100
+```
+
+#### `countMatched(word1: string, word2: string): number`
+
+```typescript
+const matched = countMatched("محمد", "محمود");
+console.log(matched); // Output: 4
+```
+
+#### `countUnmatched(word1: string, word2: string): number`
+
+```typescript
+const unmatched = countUnmatched("محمد", "محمود");
+console.log(unmatched); // Output: 1
+```
+
+## Testing
+
+To run the tests, run:
+
+```bash
+npm test
+```
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

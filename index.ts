@@ -25,9 +25,10 @@ const arabicFormsMapping: { [key: string]: string[] } = {
     'م': [],
     'ن': [],
     'ه': ['ة', 'ھ', 'ۀ', 'ہ', 'ۂ', 'ۃ'],
-    'و': ['ۄ', 'ۅ', 'ۆ', 'ۇ', 'ۈ', 'ۉ', 'ۊ', 'ۋ', 'ؤ'],
-    'ي': ['ى', 'ۍ', 'ێ']
+    'و': ['ۄ', 'ۅ', 'ۆ', 'ۇ', 'ۈ', 'ۉ', 'ۊ', 'ۋ', 'ؤ']
 };
+
+
 
 // Function to remove diacritics from Arabic text
 function removeArabicDiacritics(text: string): string {
@@ -52,30 +53,23 @@ function replaceForms(text: string): string {
 }
 
 // Function to calculate the percentage of similarity between two Arabic words
-function calculateSimilarity(word1: string, word2: string): number {
-    // Early exit 1
-    if (word1 === word2) return 100;
+interface SimilarityResult {
+    matchCount: number;
+    maxLength: number;
+}
+function calculateSimilarity(word1: string, word2: string): SimilarityResult {
 
     // Step 1: Remove diacritics
     word1 = removeArabicDiacritics(word1);
     word2 = removeArabicDiacritics(word2);
 
-    // Early exit 2
-    if (word1 === word2) return 100;
-
     // Step 2: Remove spaces
     word1 = removeSpaces(word1);
     word2 = removeSpaces(word2);
 
-    // Early exit 3
-    if (word1 === word2) return 100;
-
     // Step 3: Replace letters with their key forms
     word1 = replaceForms(word1);
     word2 = replaceForms(word2);
-
-    // Early exit 4
-    if (word1 === word2) return 100;
 
     // Step 4: Calculate similarity using a fast method
     const length1 = word1.length;
@@ -89,7 +83,32 @@ function calculateSimilarity(word1: string, word2: string): number {
         }
     }
 
+    return { matchCount, maxLength };
+}
+
+function isSimilar(word1: string, word2: string): boolean {
+    const { matchCount, maxLength } = calculateSimilarity(word1, word2);
+    return matchCount === maxLength;
+}
+
+function similarityPercentage(word1: string, word2: string): number {
+    const { matchCount, maxLength } = calculateSimilarity(word1, word2);
     return (matchCount / maxLength) * 100;
 }
 
-export default calculateSimilarity;
+function countMatched(word1: string, word2: string): number {
+    const { matchCount } = calculateSimilarity(word1, word2);
+    return matchCount;
+}
+
+function countUnmatched(word1: string, word2: string): number {
+    const { matchCount, maxLength } = calculateSimilarity(word1, word2);
+    return maxLength - matchCount;
+}
+
+export {
+    isSimilar,
+    similarityPercentage,
+    countMatched,
+    countUnmatched
+};
