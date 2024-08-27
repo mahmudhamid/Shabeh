@@ -1,0 +1,26 @@
+{
+  "name": "shabeh",
+  "version": "1.0.0",
+  "description": "A light-weight Javascript package to calculate the percentage of similarity between two Arabic words.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MahmudHAMID/Shabeh.git"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "keywords": ["Arabic word comparison", "Arabic text similarity", "Diacritic removal", "Text normalization", "Arabic language support", "Arabic text processing", "Unicode normalization", "Text preprocessing"],
+  "author": "Mahmud Hamid <me@mahmudhamid.com> (https://mahmudhamid.com/)",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/node": "^22.5.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  }
+}
