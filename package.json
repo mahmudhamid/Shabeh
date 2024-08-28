@@ -1,6 +1,6 @@
 {
   "name": "shabeh",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A light-weight Javascript package to calculate the similarity between two Arabic words.",
   "repository": {
     "type": "git",
@@ -12,7 +12,7 @@
     "build": "tsc",
     "test": "jest"
   },
-  "keywords": ["Arabic word comparison", "Arabic text similarity", "Diacritic removal", "Text normalization", "Arabic language support", "Arabic text processing", "Unicode normalization", "Text preprocessing"],
+  "keywords": ["arabic-word-comparison", "arabic-text-similarity", "arabic-diacritic-removal", "text-normalization", "arabic-language-support", "arabic-text-processing", "unicode-normalization", "text-preprocessing"],
   "author": "Mahmud Hamid <me@mahmudhamid.com> (https://mahmudhamid.com/)",
   "license": "MIT",
   "devDependencies": {
