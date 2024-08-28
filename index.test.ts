@@ -1,4 +1,4 @@
-import { isSimilar, similarityPercentage, countMatched, countUnmatched } from './index';
+import { isSimilar, isEqual, similarityPercentage, countMatched, countUnmatched} from './index';
 
 describe('Arabic Text Similarity Functions', () => {
     const input1 = ['مرحبا', 'مرحباً'];
@@ -15,6 +15,15 @@ describe('Arabic Text Similarity Functions', () => {
         expect(isSimilar(input4[0], input4[1])).toBe(true);
         expect(isSimilar(input5[0], input5[1])).toBe(true);
         expect(isSimilar(input6[0], input6[1])).toBe(true);
+    });
+
+    it('should correctly determine if two words are equal', () => {
+        expect(isEqual(input1[0], input1[1])).toBe(true);
+        expect(isEqual(input2[0], input2[1])).toBe(true);
+        expect(isEqual(input3[0], input3[1])).toBe(false);
+        expect(isEqual(input4[0], input4[1])).toBe(false);
+        expect(isEqual(input5[0], input5[1])).toBe(false);
+        expect(isEqual(input6[0], input6[1])).toBe(false);
     });
 
     it('should correctly calculate the similarity percentage between two words', () => {

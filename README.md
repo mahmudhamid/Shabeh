@@ -15,7 +15,7 @@ npm install shabeh
 ### Importing the Module
 
 ```typescript
-import { isSimilar, similarityPercentage, countMatched, countUnmatched } from 'shabeh';
+import { isSimilar, isEqual, similarityPercentage, countMatched, countUnmatched } from 'shabeh';
 ```
 
 ### Functions
@@ -23,8 +23,16 @@ import { isSimilar, similarityPercentage, countMatched, countUnmatched } from 's
 #### `isSimilar(word1: string, word2: string): boolean`
 
 ```typescript
-const result = isSimilar("فاطمه", "فاطمة");
-console.log(result); // Output: true
+console.log(isSimilar("فاطمه", "فاطمة")); // Output: true
+console.log(isSimilar("داوود", "داؤود")); // Output: true
+console.log(isSimilar("أحمد بن داوودمحمد", "احْمد بِن دَاؤود مُحمد")); // Output: true
+```
+
+#### `isEqual(word1: string, word2: string): boolean`
+
+```typescript
+console.log(isEqual("فاطمه", "فاطمة")); // Output: false
+console.log(isEqual("مرحباً", "مرحبا")); // Output: true
 ```
 
 #### `similarityPercentage(word1: string, word2: string): number`

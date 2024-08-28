@@ -28,8 +28,6 @@ const arabicFormsMapping: { [key: string]: string[] } = {
     'و': ['ۄ', 'ۅ', 'ۆ', 'ۇ', 'ۈ', 'ۉ', 'ۊ', 'ۋ', 'ؤ']
 };
 
-
-
 // Function to remove diacritics from Arabic text
 function removeArabicDiacritics(text: string): string {
     return text.replace(/[\u0610-\u061A\u064B-\u065F\u0670\u06D6-\u06DC\u06DF-\u06E8\u06EA-\u06ED]/g, '');
@@ -91,6 +89,17 @@ function isSimilar(word1: string, word2: string): boolean {
     return matchCount === maxLength;
 }
 
+function isEqual(word1: string, word2: string): boolean {
+    word1 = removeArabicDiacritics(word1);
+    word2 = removeArabicDiacritics(word2);
+
+    // Step 2: Remove spaces
+    word1 = removeSpaces(word1);
+    word2 = removeSpaces(word2);
+
+    return word1 === word2;
+}
+
 function similarityPercentage(word1: string, word2: string): number {
     const { matchCount, maxLength } = calculateSimilarity(word1, word2);
     return (matchCount / maxLength) * 100;
@@ -108,6 +117,7 @@ function countUnmatched(word1: string, word2: string): number {
 
 export {
     isSimilar,
+    isEqual,
     similarityPercentage,
     countMatched,
     countUnmatched
