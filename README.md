@@ -33,6 +33,7 @@ console.log(isSimilar("أحمد بن داوودمحمد", "احْمد بِن د�
 ```typescript
 console.log(isEqual("فاطمه", "فاطمة")); // Output: false
 console.log(isEqual("مرحباً", "مرحبا")); // Output: true
+console.log(isEqual("علي بنمبارك", "علي بن مبارك")); // Output: true
 ```
 
 #### `similarityPercentage(word1: string, word2: string): number`
