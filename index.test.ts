@@ -7,6 +7,7 @@ describe('Arabic Text Similarity Functions', () => {
     const input4 = ['فاطمة', 'فاطمه'];
     const input5 = ['داوود', 'داؤود'];
     const input6 = ['أحمد بن داوودمحمد', 'احْمد بِن دَاؤود مُحمد'];
+    const input7 = ['على', 'علي'];
 
     it('should correctly determine if two words are similar', () => {
         expect(isSimilar(input1[0], input1[1])).toBe(true);
@@ -15,6 +16,7 @@ describe('Arabic Text Similarity Functions', () => {
         expect(isSimilar(input4[0], input4[1])).toBe(true);
         expect(isSimilar(input5[0], input5[1])).toBe(true);
         expect(isSimilar(input6[0], input6[1])).toBe(true);
+        expect(isSimilar(input7[0], input7[1])).toBe(true);
     });
 
     it('should correctly determine if two words are equal', () => {
@@ -24,6 +26,7 @@ describe('Arabic Text Similarity Functions', () => {
         expect(isEqual(input4[0], input4[1])).toBe(false);
         expect(isEqual(input5[0], input5[1])).toBe(false);
         expect(isEqual(input6[0], input6[1])).toBe(false);
+        expect(isEqual(input7[0], input7[1])).toBe(false);
     });
 
     it('should correctly calculate the similarity percentage between two words', () => {

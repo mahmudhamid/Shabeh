@@ -25,6 +25,7 @@ import { isSimilar, isEqual, similarityPercentage, countMatched, countUnmatched 
 ```typescript
 console.log(isSimilar("فاطمه", "فاطمة")); // Output: true
 console.log(isSimilar("داوود", "داؤود")); // Output: true
+console.log(isSimilar("علي", "على")); // Output: true
 console.log(isSimilar("أحمد بن داوودمحمد", "احْمد بِن دَاؤود مُحمد")); // Output: true
 ```
 
@@ -32,6 +33,7 @@ console.log(isSimilar("أحمد بن داوودمحمد", "احْمد بِن د�
 
 ```typescript
 console.log(isEqual("فاطمه", "فاطمة")); // Output: false
+console.log(isSimilar("علي", "على")); // Output: false
 console.log(isEqual("مرحباً", "مرحبا")); // Output: true
 console.log(isEqual("علي بنمبارك", "علي بن مبارك")); // Output: true
 ```
