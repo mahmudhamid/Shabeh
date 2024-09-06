@@ -1,10 +1,10 @@
 {
   "name": "shabeh",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "A light-weight Javascript package to calculate the similarity between two Arabic words.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MahmudHAMID/Shabeh.git"
+    "url": "git+https://github.com/mahmudhamid/Shabeh.git"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
